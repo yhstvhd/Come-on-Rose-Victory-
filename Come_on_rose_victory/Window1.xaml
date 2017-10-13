@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Window
 	x:Class="Come_on_rose_victory.Window1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	Title="Come_on_rose_victory" xmlns:Controls0="clr-namespace:System;assembly=mscorlib"
 	Width="354"
-	Height="214">
+	Height="216">
 	<Grid
 		Background="#FF353535"
-		Width="345"
-		Height="188">
+		Width="349"
+		Height="212">
 		<TextBlock
 			FontSize="45"
 			Foreground="White"
 			TextAlignment="Center"
 			FontWeight="Bold"
 			FontFamily="Yu Gothic UI"
-			Width="45"
+			Width="48"
 			Grid.Column="0"
 			Grid.Row="1"
 			HorizontalAlignment="Left"
 			VerticalAlignment="Stretch"
-			Margin="3,9,0,10">
+			Margin="0,9,0,46">
 			<Run
 				Text="B&#xA;S&#xA;O" />
 		</TextBlock>
@@ -32,21 +32,19 @@
 			Grid.Row="1"
 			HorizontalAlignment="Left"
 			VerticalAlignment="Stretch"
-			Margin="49,5,0,132" 
-			Text="{Binding B}"/>
-		
+			Margin="49,5,0,132"
+			Text="{Binding B}" />
 		<TextBlock
 			FontSize="34"
 			Foreground="#FFFF7B00"
 			Height="53"
 			Width="104"
-			Grid.Column="0"
-			Grid.Row="1"
-			HorizontalAlignment="Left"
-			VerticalAlignment="Top"
 			Margin="48,64,0,0"
-			Text="{Binding S}" >
-		</TextBlock>
+			VerticalAlignment="Top"
+			HorizontalAlignment="Left"
+			Grid.Row="1"
+			Grid.Column="0"
+			Text="{Binding S}" />
 		<TextBlock
 			Height="39"
 			Width="102"
@@ -56,9 +54,8 @@
 			Grid.Row="1"
 			HorizontalAlignment="Left"
 			VerticalAlignment="Bottom"
-			Margin="49,0,0,33"
-			Text="{Binding O}" >
-		</TextBlock>
+			Margin="49,0,0,52.5"
+			Text="{Binding O}" />
 		<TextBlock
 			FontSize="35"
 			FontWeight="Bold"
@@ -86,10 +83,20 @@
 			Grid.Row="1"
 			HorizontalAlignment="Right"
 			VerticalAlignment="Bottom"
-			Margin="0,0,44,7">
+			Margin="0,0,44.5,46">
 			<Run
 				Text="ロッテ" />
 		</TextBlock>
+		<TextBox
+			Height="25"
+			Grid.Column="0"
+			Grid.Row="1"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Bottom"
+			Margin="0,0,0,25.5"
+			x:Name="urlbox"
+			Text="EnterURL"
+			KeyDown="urlboxKeydown" />
 		<Grid.RowDefinitions>
 			<RowDefinition
 				Height="0*" />

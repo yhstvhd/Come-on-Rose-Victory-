@@ -14,17 +14,14 @@ using System.Text.RegularExpressions;
   	//HTMLをダウンロード
  	public void DownloadStings(string URL)
  	{
-
 		WebClient wc= new WebClient();
 		wc.Encoding = Encoding.UTF8;
 		DownloadedString = wc.DownloadString(URL);
-
  	}
  	
- 	public void BallCount(out string Ball, out string Strike, out string Out)
+ 	public void BallCount(string URL,out string Ball, out string Strike, out string Out)
  	{
- 		
- 		DownloadStings(@"F:\2017年10月9日 楽天 vs 日本ハム 一球速報 - スポーツナビ.html");
+ 		DownloadStings(URL);
  		
  		Regex r = new Regex("<b>●*</b>");			//正規表現で取得、"<b> ●が0回以上連続する </b>"にマッチ
 		
