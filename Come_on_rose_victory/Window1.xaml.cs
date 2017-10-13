@@ -20,21 +20,28 @@ namespace Come_on_rose_victory
 		public Window1()
 		{
 			InitializeComponent();
-
 		}
 		async void urlboxKeydown(object sender, KeyEventArgs e)
 		{
+			//Enterキーを押されたときの処理
 			if(e.Key == Key.Enter)
 			{
 				string URL = urlbox.Text;
-				string B; string S; string O;
-			while(true)
-			{
-				AnalysisContents Contents = new AnalysisContents();
-				Contents.BallCount(URL, out B, out S, out O);
-				this.DataContext = new {B,S,O};
-				await Task.Delay(5000);
-			}
+				string B,S,O;
+				string HomeTeam, VisitorTeam;
+				//チーム名取得
+				AnalysisContents Contents;
+				Contents = new AnalysisContents(URL);
+				Contents.Teams(out HomeTeam, out VisitorTeam);
+				
+				//5秒ごとにボールカウントを取得
+				while(true)
+				{
+					Contents = new AnalysisContents(URL);
+					Contents.BallCount(out B, out S, out O);
+					this.DataContext = new {B,S,O,HomeTeam,VisitorTeam};
+					await Task.Delay(5000);
+				}
 			}
 		}
 	}

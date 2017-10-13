@@ -11,17 +11,15 @@ using System.Text.RegularExpressions;
  {
  	string DownloadedString;
  	
-  	//HTMLをダウンロード
- 	public void DownloadStings(string URL)
+ 	public AnalysisContents(string URL)
  	{
-		WebClient wc= new WebClient();
+ 		WebClient wc= new WebClient();
 		wc.Encoding = Encoding.UTF8;
-		DownloadedString = wc.DownloadString(URL);
+ 		DownloadedString = wc.DownloadString(URL);
  	}
  	
- 	public void BallCount(string URL,out string Ball, out string Strike, out string Out)
+ 	public void BallCount(out string Ball, out string Strike, out string Out)
  	{
- 		DownloadStings(URL);
  		
  		Regex r = new Regex("<b>●*</b>");			//正規表現で取得、"<b> ●が0回以上連続する </b>"にマッチ
 		
@@ -37,5 +35,14 @@ using System.Text.RegularExpressions;
 		Ball = ReplaceMatches[0];
 		Strike = ReplaceMatches[1];
 		Out = ReplaceMatches[2];
+ 	}
+ 	//チーム名を取得
+ 	public void Teams(out string HomeTeam, out string VisitorTeam)
+ 	{
+ 		//ホーム、ビジターのチーム名を取得
+ 		Match m = Regex.Match(DownloadedString," .+ vs");
+ 		HomeTeam = m.Value.Replace("vs","");
+ 		m = Regex.Match(DownloadedString,"vs .+ 一");
+ 		VisitorTeam = m.Value.Replace("vs ","").Replace("一","");
  	}
  }
