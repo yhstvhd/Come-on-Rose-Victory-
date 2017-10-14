@@ -21,7 +21,7 @@ using System.Text.RegularExpressions;
  	public void BallCount(out string Ball, out string Strike, out string Out)
  	{
  		
- 		Regex r = new Regex("(<b>●*</b>|●+</p>)");			//正規表現で取得、"<b> ●が0回以上連続する </b>"にマッチか"●●●●</p>"にマッチ
+ 		Regex r = new Regex("(<b>●*</b>|●{3,}</p>)");			//正規表現で取得、"<b> ●が0回以上連続する </b>"にマッチか"●3つ以上</p>"にマッチ
 		
 		MatchCollection mc = r.Matches(DownloadedString);	//一致したコレクション
 		
