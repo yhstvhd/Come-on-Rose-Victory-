@@ -21,27 +21,20 @@ using System.Text.RegularExpressions;
  	public void BallCount(out string Ball, out string Strike, out string Out)
  	{
  		
- 		Regex r = new Regex("(<b>●*</b>|●+</p>)");			//正規表現で取得、"<b> ●が0回以上連続する </b>"にマッチか"●●●●</p>"にマッチ
+ 		Regex r = new Regex("<b>●*</b>");			//正規表現で取得、"<b> ●が0回以上連続する </b>"にマッチ
 		
 		MatchCollection mc = r.Matches(DownloadedString);	//一致したコレクション
 		
-		//<b>タグとか</b>タグ,●と</p>を取り除く
+		//<b>タグとか</b>タグを取り除く
 		string[] ReplaceMatches = new string[mc.Count];
 		for (int i = 0;i < mc.Count;i++)
 		{
-			ReplaceMatches[i] = Regex.Replace(mc[i].Value,"(</*b>|●+</p>)","");
+			ReplaceMatches[i] = Regex.Replace(mc[i].Value,"</*b>","");
 		}
-		//念のための例外処理
-		try
-		{
-			Ball = ReplaceMatches[0];
-			Strike = ReplaceMatches[1];
-			Out = ReplaceMatches[2];
-		}catch{
-			Ball = "";
-			Strike = "";
-			Out = "";
-		}
+		
+		Ball = ReplaceMatches[0];
+		Strike = ReplaceMatches[1];
+		Out = ReplaceMatches[2];
  	}
  	//チーム名を取得
  	public void Teams(out string HomeTeam, out string VisitorTeam)

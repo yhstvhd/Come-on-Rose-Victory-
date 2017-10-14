@@ -34,13 +34,13 @@ namespace Come_on_rose_victory
 				Contents = new AnalysisContents(URL);
 				Contents.Teams(out HomeTeam, out VisitorTeam);
 				
-				//10秒ごとにボールカウントを取得
+				//5秒ごとにボールカウントを取得
 				while(true)
 				{
 					Contents = new AnalysisContents(URL);
 					Contents.BallCount(out B, out S, out O);
 					this.DataContext = new {B,S,O,HomeTeam,VisitorTeam};
-					await Task.Delay(10000);
+					await Task.Delay(5000);
 				}
 			}
 		}
