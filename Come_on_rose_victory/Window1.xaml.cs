@@ -49,6 +49,10 @@ namespace Come_on_rose_victory
 				}
 			}
 		}
+		void urlboxClick(object sender, MouseButtonEventArgs e)
+		{
+			urlbox.Text = "";
+		}
 	}
 	
 	
