@@ -65,4 +65,23 @@ using System.Text.RegularExpressions;
  		VisitorScore = Scores[0];
  		HomeScore = Scores[1];
  	}
+ 	//出塁状況を取得
+ 	public void Bases(out string First, out string Second, out string Third)
+ 	{
+ 		string[] bases = new string[4];
+ 		for (int i = 1; i < 4;i++)
+ 		{
+ 			if(DownloadedString.IndexOf("base"+ i)== -1)
+ 			{
+ 				bases[i] = "◇";
+ 			}
+ 			else
+ 			{
+ 				bases[i] = "◆";
+ 			}
+ 		}
+ 		First = bases[1];
+ 		Second = bases[2];
+ 		Third = bases[3];
+ 	}
  }
