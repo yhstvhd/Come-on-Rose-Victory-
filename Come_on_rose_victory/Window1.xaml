@@ -160,7 +160,7 @@
 			Grid.Row="1"
 			HorizontalAlignment="Right"
 			VerticalAlignment="Stretch"
-			Margin="0,5,80.5,159"
+			Margin="0,5,77.5,159"
 			x:Name="Second"
 			Text="{Binding Snd}"></TextBlock>
 		<TextBlock
