@@ -42,8 +42,15 @@ using System.Text.RegularExpressions;
  	{
  		//ホーム、ビジターのチーム名を取得
  		Match m = Regex.Match(DownloadedString," .+ vs");
- 		HomeTeam = m.Value.Replace("vs","");
+ 		HomeTeam = m.Value.Replace("vs","").Replace(" ","");
  		m = Regex.Match(DownloadedString,"vs .+ 一");
- 		VisitorTeam = m.Value.Replace("vs ","").Replace("一","");
+ 		VisitorTeam = m.Value.Replace("vs ","").Replace("一","").Replace(" ","");
+ 	}
+ 	//イニングを取得
+ 	public string Inning()
+ 	{
+ 		string SerchWord = @"<h4 class=""live"">" + "\n<em>.+</em>";
+ 		Match m = Regex.Match(DownloadedString,SerchWord);
+ 		return Regex.Replace(m.Value,@"<h4 class=""live"">" + "\n<em>","").Replace("</em>","");
  	}
  }
