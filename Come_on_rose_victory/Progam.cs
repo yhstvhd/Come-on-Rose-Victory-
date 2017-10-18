@@ -53,4 +53,16 @@ using System.Text.RegularExpressions;
  		Match m = Regex.Match(DownloadedString,SerchWord);
  		return Regex.Replace(m.Value,@"<h4 class=""live"">" + "\n<em>","").Replace("</em>","");
  	}
+ 	//得点を取得
+ 	public void Score(out string VisitorScore, out string HomeScore)
+ 	{
+ 		MatchCollection mc = Regex.Matches(DownloadedString,@"<td class=""sum"">" + ".+</td>");
+ 		string[] Scores = new string[mc.Count];
+ 		for (int i = 0; i < mc.Count ; i++)
+ 		{
+ 			Scores[i] = mc[i].Value.Replace(@"<td class=""sum"">","").Replace("</td>","");
+ 		}
+ 		VisitorScore = Scores[0];
+ 		HomeScore = Scores[1];
+ 	}
  }

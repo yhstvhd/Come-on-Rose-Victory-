@@ -27,6 +27,7 @@ namespace Come_on_rose_victory
 			if(e.Key == Key.Enter)
 			{
 				string URL = urlbox.Text;
+				string Vscore, Hscore;
 				string B,S,O;
 				string HomeTeam, VisitorTeam;
 				//チーム名取得
@@ -39,8 +40,9 @@ namespace Come_on_rose_victory
 				{
 					Contents = new AnalysisContents(URL);
 					string Inning = Contents.Inning();
+					Contents.Score(out Vscore, out Hscore);
 					Contents.BallCount(out B, out S, out O);
-					this.DataContext = new {B,S,O,HomeTeam,VisitorTeam,Inning};
+					this.DataContext = new {Inning,Vscore,Hscore,S,O,HomeTeam,VisitorTeam};
 					await Task.Delay(10000);
 				}
 			}
