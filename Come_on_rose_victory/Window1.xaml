@@ -4,7 +4,9 @@
 	Title="Come_on_rose_victory" xmlns:Controls0="clr-namespace:System;assembly=mscorlib"
 	Width="354"
 	Height="216"
-	Topmost="True">
+	Topmost="True"
+	WindowStyle="None"
+	AllowsTransparency="True">
 	<Grid
 		Background="#FF353535"
 		Width="349"
@@ -85,12 +87,13 @@
 			Margin="0,0,50,60"
 			Text="{Binding HomeTeam}" />
 		<TextBox
-			Height="25"
+			Height="20"
+			FontSize="10"
 			Grid.Column="0"
 			Grid.Row="1"
 			HorizontalAlignment="Stretch"
 			VerticalAlignment="Bottom"
-			Margin="0,0,0,25.5"
+			Margin="0,0,0,0"
 			x:Name="urlbox"
 			Text="EnterURL"
 			KeyDown="urlboxKeydown"

@@ -20,6 +20,8 @@ namespace Come_on_rose_victory
 		public Window1()
 		{
 			InitializeComponent();
+			//マウスで移動させる
+			MouseLeftButtonDown += (sender, e) => DragMove();
 		}
 		async void urlboxKeydown(object sender, KeyEventArgs e)
 		{
