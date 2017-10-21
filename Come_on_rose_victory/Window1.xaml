@@ -67,7 +67,7 @@
 			FontSize="20"
 			FontWeight="Bold"
 			Background="{x:Null}"
-			Foreground="White"
+			Foreground="{Binding VisitorColor}"
 			TextAlignment="Center"
 			Width="130"
 			Height="25"
@@ -79,7 +79,7 @@
 			Text="{Binding VisitorTeam}"></TextBlock>
 		<TextBlock
 			FontWeight="Bold"
-			Foreground="White"
+			Foreground="{Binding HomeColor}"
 			TextAlignment="Center"
 			FontSize="20"
 			Width="130"

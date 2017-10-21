@@ -72,8 +72,26 @@ using System.Text.RegularExpressions;
  		catch
  		{
  			return "";
+ 		}			
+ 	}
+ 	//イニング別に色を指定
+ 	public void InningColor(string Inning , out string HomeColor, out string VisitorColor)
+ 	{
+ 		if (Inning.IndexOf("表") >= 0)
+ 		{
+ 			HomeColor = "White";
+ 			VisitorColor = "Red";
  		}
- 				
+ 		else if(Inning.IndexOf("裏") >= 0)
+ 		{
+ 			HomeColor = "Red";
+ 			VisitorColor = "White";
+ 		}
+ 		else
+ 		{
+			HomeColor = "White";
+ 			VisitorColor = "White";
+ 		}
  	}
  	//得点を取得
  	public void Score(out string VisitorScore, out string HomeScore)

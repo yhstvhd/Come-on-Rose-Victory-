@@ -33,6 +33,7 @@ namespace Come_on_rose_victory
 				string Fst,Snd,Trd;
 				string B,S,O;
 				string HomeTeam, VisitorTeam;
+				string HomeColor,VisitorColor;
 				//チーム名取得
 				AnalysisContents Contents;
 				Contents = new AnalysisContents(URL);
@@ -43,10 +44,12 @@ namespace Come_on_rose_victory
 				{
 					Contents = new AnalysisContents(URL);
 					string Inning = Contents.Inning();
+					Contents.InningColor(Inning, out HomeColor, out VisitorColor);
 					Contents.Bases(out Fst, out Snd, out Trd);
 					Contents.Score(out Vscore, out Hscore);
 					Contents.BallCount(out B, out S, out O);
-					this.DataContext = new {Inning,Vscore,Hscore,Fst,Snd,Trd,B,S,O,HomeTeam,VisitorTeam};
+					this.DataContext = 
+						new {Inning,Vscore,Hscore,Fst,Snd,Trd,B,S,O,HomeTeam,VisitorTeam,HomeColor,VisitorColor};
 					await Task.Delay(10000);
 				}
 			}
