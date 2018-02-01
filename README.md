@@ -1,8 +1,8 @@
 # Come-on-Rose-Victory-
 
 Come on Rose Victory !! Hustle Bobby Go! Go! Go!  
-勝つぞ！横浜！倒せ！~~讀賣！！ 阪神！~~ 広島！！  
-行くぞ！日本シリーズ！！
+勝つぞ！横浜！倒せ！~~讀賣~~  
+感動をありがとう、今年こそは頂点へ！！
 =======
 
 ## 概要
